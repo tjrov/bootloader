@@ -10,8 +10,8 @@
 #include <avr/wdt.h>
 #include <util/delay.h>
 
-#include "DiscobusSlave.h"
-#include "DiscobusData485.h"
+//#include "DiscobusSlave.h"
+//#include "DiscobusData485.h"
 
 
 ////////////////////////////////////////////
