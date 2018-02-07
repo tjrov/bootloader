@@ -49,9 +49,9 @@ static uint8_t processMessage();
 ////////////////////////////////////////////
 
 void flash() {
-  PORTB |= (1<<PB0);
+  PORTB |= (1<<PB5);
   _delay_ms(50);
-  PORTB &= ~(1<<PB0);
+  PORTB &= ~(1<<PB5);
   _delay_ms(50);
 }
 

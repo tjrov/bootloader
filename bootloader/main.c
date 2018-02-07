@@ -26,8 +26,8 @@ int main(void) {
   MCUSR &= ~(1<<WDRF);
   WDTCSR |= (1<<WDCE) | (1<<WDE);
   WDTCSR = 0x00;
-  //Set PB0 as output LED
-  DDRB |= (1<<PB0);
+  //Set PB5 as output LED
+  DDRB |= (1<<PB5);
   // Run the bootloader
   if (shouldRunBootloader()){
     flash();
