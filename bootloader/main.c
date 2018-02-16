@@ -28,6 +28,9 @@ int main(void) {
   WDTCSR = 0x00;
   //Set PB5 as output LED
   DDRB |= (1<<PB5);
+  //Set PD2 as RS-485 direction control and put into ROV into receive mode
+  DDRD |= (1<<PD2);
+  PORTD &= ~(1<<PD2);
   // Run the bootloader
   if (shouldRunBootloader()){
     flash();

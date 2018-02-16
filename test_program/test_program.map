@@ -262,7 +262,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x51e
+.text           0x00000000      0x516
  *(.vectors)
  .vectors       0x00000000       0x68 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
                 0x00000000                __vectors
@@ -345,51 +345,51 @@ END GROUP
                 0x000000a2                __vector_10
                 0x000000a2                __vector_16
                 0x000000a2                __vector_20
- .text          0x000000a6       0xf2 main.o
+ .text          0x000000a6       0xea main.o
                 0x000000a6                _Z7setOkayv
                 0x000000b2                _Z18rebootToBootloaderv
                 0x000000d2                _Z10setupCommsv
-                0x000000ee                _Z13dataAvailablev
-                0x000000f6                _Z11commReceivev
-                0x00000106                main
-                0x0000016e                _Z5flashv
- .text          0x00000198      0x2ca lib/discobus/DiscobusDataUart.o
-                0x00000198                _ZN16DiscobusDataUart5beginEm
-                0x0000020e                _ZN16DiscobusDataUart4readEv
-                0x00000246                _ZN16DiscobusDataUart9availableEv
-                0x00000264                _ZN16DiscobusDataUart5clearEv
-                0x0000026e                _ZN16DiscobusDataUart12enable_writeEv
-                0x00000270                _ZN16DiscobusDataUart11enable_readEv
-                0x00000272                _ZN16DiscobusDataUartC1Ev
-                0x00000272                _ZN16DiscobusDataUartC2Ev
-                0x0000027e                _Z11uartReceivev
-                0x000002c0                _Z19writeByteToRegisterh
-                0x000002d0                _Z16uartSendNextBytev
-                0x0000032c                _ZN16DiscobusDataUart5flushEv
-                0x0000035e                _ZN16DiscobusDataUart5writeEh
-                0x000003d2                __vector_18
-                0x0000041a                __vector_19
-                0x00000462                . = ALIGN (0x2)
+                0x000000f2                _Z13dataAvailablev
+                0x000000fa                _Z11commReceivev
+                0x0000010a                main
+                0x00000166                _Z5flashv
+ .text          0x00000190      0x2ca lib/discobus/DiscobusDataUart.o
+                0x00000190                _ZN16DiscobusDataUart5beginEm
+                0x00000206                _ZN16DiscobusDataUart4readEv
+                0x0000023e                _ZN16DiscobusDataUart9availableEv
+                0x0000025c                _ZN16DiscobusDataUart5clearEv
+                0x00000266                _ZN16DiscobusDataUart12enable_writeEv
+                0x00000268                _ZN16DiscobusDataUart11enable_readEv
+                0x0000026a                _ZN16DiscobusDataUartC1Ev
+                0x0000026a                _ZN16DiscobusDataUartC2Ev
+                0x00000276                _Z11uartReceivev
+                0x000002b8                _Z19writeByteToRegisterh
+                0x000002c8                _Z16uartSendNextBytev
+                0x00000324                _ZN16DiscobusDataUart5flushEv
+                0x00000356                _ZN16DiscobusDataUart5writeEh
+                0x000003ca                __vector_18
+                0x00000412                __vector_19
+                0x0000045a                . = ALIGN (0x2)
  *(.text.*)
  .text.libgcc.div
-                0x00000462       0x28 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodhi4.o)
-                0x00000462                __udivmodhi4
+                0x0000045a       0x28 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodhi4.o)
+                0x0000045a                __udivmodhi4
  .text.libgcc.div
-                0x0000048a       0x28 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodhi4.o)
-                0x0000048a                __divmodhi4
-                0x0000048a                _div
+                0x00000482       0x28 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_divmodhi4.o)
+                0x00000482                __divmodhi4
+                0x00000482                _div
  .text.libgcc.div
-                0x000004b2       0x44 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodsi4.o)
-                0x000004b2                __udivmodsi4
+                0x000004aa       0x44 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_udivmodsi4.o)
+                0x000004aa                __udivmodsi4
  .text.avr-libc
-                0x000004f6       0x24 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libatmega328p.a(eeupd_byte.o)
-                0x000004f6                eeprom_update_byte
-                0x000004f8                eeprom_update_r18
-                0x0000051a                . = ALIGN (0x2)
+                0x000004ee       0x24 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libatmega328p.a(eeupd_byte.o)
+                0x000004ee                eeprom_update_byte
+                0x000004f0                eeprom_update_r18
+                0x00000512                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000051a        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
-                0x0000051a                exit
-                0x0000051a                _exit
+ .fini9         0x00000512        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x00000512                exit
+                0x00000512                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -408,11 +408,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000051a        0x4 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .fini0         0x00000512        0x4 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000051e                _etext = .
+                0x00000516                _etext = .
 
-.data           0x00800100       0x14 load address 0x0000051e
+.data           0x00800100       0x14 load address 0x00000516
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -433,8 +433,8 @@ END GROUP
  *(.bss*)
  *(COMMON)
                 0x008001ea                PROVIDE (__bss_end, .)
-                0x0000051e                __data_load_start = LOADADDR (.data)
-                0x00000532                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000516                __data_load_start = LOADADDR (.data)
+                0x0000052a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008001ea        0x0
                 [!provide]                PROVIDE (__noinit_start, .)

@@ -188,7 +188,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00007c00      0x37e
+.text           0x00007c00      0x382
  *(.vectors)
  .vectors       0x00007c00       0x68 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
                 0x00007c00                __vectors
@@ -281,20 +281,20 @@ END GROUP
                 0x00007d00      0x132 comm.o
                 0x00007d00                watchSerial
  .text.startup.main
-                0x00007e32      0x114 main.o
+                0x00007e32      0x118 main.o
                 0x00007e32                main
  .text.avr-libc
-                0x00007f46       0x10 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libatmega328p.a(eerd_byte.o)
-                0x00007f46                eeprom_read_byte
+                0x00007f4a       0x10 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libatmega328p.a(eerd_byte.o)
+                0x00007f4a                eeprom_read_byte
  .text.avr-libc
-                0x00007f56       0x24 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libatmega328p.a(eeupd_byte.o)
-                0x00007f56                eeprom_update_byte
-                0x00007f58                eeprom_update_r18
-                0x00007f7a                . = ALIGN (0x2)
+                0x00007f5a       0x24 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/libatmega328p.a(eeupd_byte.o)
+                0x00007f5a                eeprom_update_byte
+                0x00007f5c                eeprom_update_r18
+                0x00007f7e                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00007f7a        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
-                0x00007f7a                exit
-                0x00007f7a                _exit
+ .fini9         0x00007f7e        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x00007f7e                exit
+                0x00007f7e                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -313,11 +313,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00007f7a        0x4 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .fini0         0x00007f7e        0x4 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  *(.fini0)
-                0x00007f7e                _etext = .
+                0x00007f82                _etext = .
 
-.data           0x00800100        0x0 load address 0x00007f7e
+.data           0x00800100        0x0 load address 0x00007f82
                 [!provide]                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -354,8 +354,8 @@ END GROUP
                 0x00800109                pageData
                 0x00800189                nextPageNumber
                 0x0080018a                PROVIDE (__bss_end, .)
-                0x00007f7e                __data_load_start = LOADADDR (.data)
-                0x00007f7e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00007f82                __data_load_start = LOADADDR (.data)
+                0x00007f82                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080018a        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -383,11 +383,11 @@ END GROUP
 .user_signatures
  *(.user_signatures*)
 
-.stab           0x00000000      0xe4c
+.stab           0x00000000      0xe64
  *(.stab)
  .stab          0x00000000      0x90c comm.o
- .stab          0x0000090c      0x540 main.o
-                                0x744 (size before relaxing)
+ .stab          0x0000090c      0x558 main.o
+                                0x75c (size before relaxing)
 
 .stabstr        0x00000000      0xdd7
  *(.stabstr)

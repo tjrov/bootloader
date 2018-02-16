@@ -84,7 +84,7 @@ int main() {
           //flash();
           if(commReceive() == 0xF0) {
             //flash();// && commReceive() == 0x00 && commReceive() == 0x00 && commReceive() == 0x00) {
-            commReceive(); commReceive(); commReceive();
+            //commReceive(); commReceive(); commReceive();
             rebootToBootloader();
           }
         }//rebootToBootloader();
@@ -114,6 +114,9 @@ void setupComms() {
   UCSR0C = 1 << UCSZ01 | 1 << UCSZ00; //8-bit with 1 stop bit
   //set baud rate
   UBRR0 =  (unsigned char) (((F_CPU) + 8UL * (SERIAL_BAUD)) / (16UL * (SERIAL_BAUD)) - 1UL);
+  //set RS485 to receive mode (pin PD2 low)
+  DDRD |= (1<<PD2);
+  PORTD &= ~(1<<PD2);
 }
 
 uint8_t dataAvailable() {

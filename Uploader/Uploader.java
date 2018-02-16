@@ -3,6 +3,7 @@ import com.fazecast.jSerialComm.*;
 import java.io.File;
 
 public class Uploader {
+        public static final byte[] toBootloaderBytes = new byte[] {(byte)0xFF, (byte)0xFF, (byte)0xF0};
         public static final byte[] startBytes = new byte[]{(byte)0xFF, (byte)0xFF, (byte)0xF1, (byte)0x00, (byte)0x00, (byte)0x00};
         public static final byte[] endBytes = new byte[]{(byte)0xFF, (byte)0xFF, (byte)0xF4, (byte)0x00, (byte)0x00, (byte)0x00};
         public static final byte[] footerBytes = new byte[]{(byte)0x00,(byte)0x00};
@@ -12,7 +13,7 @@ public class Uploader {
                 //prompt for input for filename and setup Scanner
                 System.out.print("Enter filepath to upload: ");
                 Scanner input = new Scanner(System.in);
-                String filepath = "../test_program/test_program.hex";//input.nextLine().trim();
+                String filepath = input.nextLine().trim();
                 Scanner infile = null;
                 try {
                         infile = new Scanner(new File(filepath));
@@ -26,7 +27,7 @@ public class Uploader {
                         System.out.println(i + " " + portList[i].getSystemPortName());
                 }
                 System.out.print("Enter number of serial port to use for upload: ");
-                SerialPort port = portList[0];//portList[Integer.parseInt(input.nextLine().trim())];
+                SerialPort port = portList[Integer.parseInt(input.nextLine().trim())];
                 System.out.println("Opening " + port.getSystemPortName());
                 if(!port.openPort()) {
                         System.out.println("Failed to open port " + port.getSystemPortName());
@@ -35,12 +36,18 @@ public class Uploader {
                 while(!port.isOpen());
                 port.setBaudRate(115200);
                 Thread.sleep(10);
+		//get into bootloading mode
+		System.out.println("Entering ROV Bootloader Mode.\nYou should see the current program on the ROV cease and the LED blink 5x");
+		port.writeBytes(toBootloaderBytes, 3);
+		System.out.println("Press enter if it worked");
+		while(!input.hasNextLine());
+		Thread.sleep(500);
                 //Start upload
                 System.out.println("Starting upload of " + filepath);
                 print(startBytes);
                 port.writeBytes(startBytes, 6);
                 Thread.sleep(10);
-                System.out.println("Sent bootloader start");
+                System.out.println("Began program transmission");
                 String data = "";
                 int pageAddress = 0;
                 byte[] dataBuffer = new byte[128];
