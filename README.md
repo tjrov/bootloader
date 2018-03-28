@@ -44,3 +44,8 @@ The code should upload, and when it finishes, the ROV computer will restart. Thi
 3. Upon receiving a command you choose, change the value in EEPROM index 0x00 to anything except 0x01 (e.g. 0x42 :D).
 
 4. Reset the ROV computer in software and the bootloader will run this time.
+
+<h1>Bootloader LED Blink Codes</h1>
+The bootloader uses the pin 13 LED (the blue one on the main computer board) to show important status info.
+
+Remember that the bootloader always runs when the ROV powers up. At this time, it will decide either to run the main program or stay in the bootloader and wait for code to be uploaded. If the bootloader is passing on to the main program, it will blink TWICE. If it will stay in the bootloader, it will blink FIVE TIMES (FICE? idk).
