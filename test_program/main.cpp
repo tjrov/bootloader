@@ -51,13 +51,13 @@ uint8_t commReceive();
 
 int main() {
   DDRB |= (1 << PB5);
-  setupComms();
+  //setupComms();
 
   //DiscobusData485 rs485(PD2, &DDRD, &PORTD);
   //DiscobusSlave comm(&rs485);
   //rs485.begin(SERIAL_BAUD);
 
-  setOkay();
+  //setOkay();
 
   uint8_t ledVal = 0;
   while(true) {
@@ -76,7 +76,7 @@ int main() {
       PORTB |= (1 << PB5);
       ledVal = 1;
     }
-    if(dataAvailable()) {
+    /*if(dataAvailable()) {
       //PORTB |= (1 << PB0);
       if(commReceive() == 0xFF) {
         //flash();
@@ -90,7 +90,7 @@ int main() {
         }//rebootToBootloader();
       }
     }
-    _delay_ms(500);
+    _delay_ms(500);*/
   }
 }
 

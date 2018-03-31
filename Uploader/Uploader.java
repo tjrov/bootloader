@@ -11,7 +11,7 @@ public class Uploader {
    public static final byte[] dataHeaderBytes = new byte[]{(byte)0xFF, (byte)0xFF, (byte)0xF3};
    public static void main(String args[]) throws Exception {
      String filepath = args[0].trim();
-     SerialPort port = SerialPort.getCommPorts()[Integer.parseInt(args[1])];
+     SerialPort port = SerialPort.getCommPort(args[1].trim());
       System.out.println("Opening " + port.getDescriptivePortName());
       if(!port.openPort()) {
          System.out.println("Failed to open port " + port.getSystemPortName());
