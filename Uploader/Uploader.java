@@ -21,7 +21,7 @@ public class Uploader {
       port.setNumDataBits(8);
       port.setParity(SerialPort.NO_PARITY);
       port.setNumStopBits(SerialPort.ONE_STOP_BIT);
-      //Thread.sleep(10);
+      Thread.sleep(200);
    	//get into bootloading mode
       /*System.out.println("Entering ROV Bootloader Mode.\nYou should see the current program on the ROV cease and the LED blink 5x");
       port.writeBytes(toBootloaderBytes, 3);
@@ -30,7 +30,7 @@ public class Uploader {
       System.out.println("Starting upload of " + filepath);
       print(startBytes);
       port.writeBytes(startBytes, 6);
-      Thread.sleep(5);
+      Thread.sleep(200);
       //Thread.sleep(10);
       System.out.println("Began program transmission");
       String data = "";
@@ -62,7 +62,7 @@ public class Uploader {
                   data.substring(i, i+2), 16);
                j++;
             }
-            Thread.sleep(5);
+            Thread.sleep(200);
             print(dataHeaderBytes);
             port.writeBytes(dataHeaderBytes, 3);
             b[0] = (byte)length;
@@ -78,10 +78,10 @@ public class Uploader {
             //reset variables
             data = "";
             pageAddress++;
-            Thread.sleep(5);
+            Thread.sleep(200);
          }
       }
-      Thread.sleep(5);
+      Thread.sleep(200);
       System.out.println("Sending bootloader end");
       print(endBytes);
       port.writeBytes(endBytes, 6);
